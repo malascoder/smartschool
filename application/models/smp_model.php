@@ -7,7 +7,12 @@ class smp_model extends CI_Model{
 	}
 	
 	function listsuratmasuk(){
-		$listsuratmasuk = $this->db->query("select * from surat");
+		$listsuratmasuk = $this->db->query("select * from surat WHERE id_jenis='1'");
 		return $listsuratmasuk;
+	}
+
+	function listsuratkeluar(){
+		$listsuratkeluar = $this->db->query("select * from surat WHERE id_jenis='2'");
+		return $listsuratkeluar;
 	}
 }
