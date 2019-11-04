@@ -269,14 +269,14 @@
                             <th>Perihal</th>
                             <th>Nama Penerima</th>
                             <th>Tanggal Surat</th>
-                            <th>Operassssi</th>
+                            <th>Operasi</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         $count = 0;
-                        foreach ($listsuratmasuk->result() as $value);
-                          count++;
+                        foreach ($listsuratkeluar->result() as $value):
+                         $count++;
                           ?>
                             <tr>    
                                 <td><?php echo $count;?></td>
