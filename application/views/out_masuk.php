@@ -275,7 +275,7 @@
                         <tbody>
                         <?php
                         $count = 0;
-                        foreach ($listsuratmasuk->result() as $value);
+                        foreach ($listsuratmasuk->result() as $value):
                           $count++;
                           ?>
                             <tr>    
