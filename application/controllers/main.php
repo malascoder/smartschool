@@ -21,7 +21,8 @@
         }
 
         public function keluar(){
-            $this->load->view('out_keluar');
+            $data['listsuratkeluar'] = $this->smp_model->listsuratkeluar();
+            $this->load->view('out_keluar',$data);
         }
 
         public function in_masuk(){
