@@ -62,15 +62,15 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="<?php echo('main/masuk')?>">Surat Masuk</a>
-            <a class="collapse-item" href="<?php echo('main/keluar')?>">Surat Keluar</a>
+            <a class="collapse-item" href="<?php echo('masuk')?>">Surat Masuk</a>
+            <a class="collapse-item" href="<?php echo('keluar')?>">Surat Keluar</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link " href="#" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-fw fa-sign-out-alt"></i>
           <span>Logout</span></a>
       </li>
@@ -250,60 +250,68 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800"><sup>Input data</sup> Surat Masuk</h1>
-            
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Input data Surat Masuk</h6>
                 </div>
                 <div class="card-body"> 
-                  <form action="">
+                  <form method="post" action='<?php echo('input_masuk')?>'>
                     <div class="form-group  col col-sm-6">
                       <label>Nomor surat:</label>
-                      <input type="text" class="form-control" id="nomor" placeholder="Nomor">
+                      <input type="text" class="form-control" name="nomor" placeholder="">
+                    </div>
+
+                    <div class="form-group  col col-sm-6">
+                      <label>Jenis Surat:</label>
+                      <select name="jenis" id="kategori" class="form-control">
+                        <option value="1">Amal Usaha Muhammadiyah</option>
+                        <option value="2">Dinas</option>
+                        <option value="3">Sekolah</option>
+                      </select>
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Kategori:</label>
                       <select name="kategori" id="kategori" class="form-control">
-                        <option value="A">A</option>
-                        <option value="B">Memet</option>
+                        <option value="1" selected>Masuk</option>
+                        <option value="2">Keluar</option>
                       </select>
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Perihal:</label>
-                      <input type="text" class="form-control" id="perihal" placeholder="Perihal">
+                      <input type="text" class="form-control" name="perihal" placeholder="">
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Nama pengirim:</label>
-                      <input type="text" class="form-control" id="perihal" placeholder="Nama pengirim">
+                      <input type="text" class="form-control" name="pengirim" placeholder=" ">
                     </div>
                  
                     <div class="form-group  col col-sm-6">
                       <label>Alamat pengirim:</label>
-                      <input type="text" class="form-control" id="perihal" placeholder="Alamat pengirim">
+                      <input type="text" class="form-control" name="alamat_pengirim" placeholder=" ">
                     </div>
 
                     <div class="form-gorup  col col-sm-6">
                       <label>Isi surat:</label>
-                      <textarea class="form-control" placeholder="Isi surat" rows="5"></textarea>
+                      <textarea class="form-control" name="isi" rows="5"></textarea>
                     </div>
                     
                     <div class="form-group  col col-sm-6">
                       <label>Tanggal surat:</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" name="tgl_surat">
                     </div>
 
                     <div class="form-group col col-sm-6">
                       <label>Upload dokumen:</label>
-                      <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                      <input type="file" name="fileToUpload" name="fileToUpload" class="form-control">
                     </div>
 
                     <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-success">Simpan</button>
-                      <button type="button" class="btn btn-secondary">Reset</button>
-                      <button type="button" class="btn btn-danger">Batal</button>
+                      <button type="submit" class="btn btn-success">Simpan</button>
+                      <button type="reset" class="btn btn-secondary">Reset</button>
+                      <a href='<?php echo ('masuk')?>' class="btn btn-danger">Batal</a>
                     </div>
                   </form>
           </div>
@@ -319,7 +327,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SmartSchool SMP Muh2 2019</span>
+            <span>Copyright &copy;  SmartSchool SMP Muh2 <?php echo date("Y"); ?></span>
           </div>
         </div>
       </footer>

@@ -12,11 +12,11 @@
   <title>SmartSchool</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url('assets/vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('assets/css/sb-admin-2.min.css')?>" rel="stylesheet">
 
 </head>
 
@@ -50,7 +50,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="main">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
         </li>
@@ -62,15 +62,15 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="out_masuk.html">Surat Masuk</a>
-            <a class="collapse-item" href="out_keluar.html">Surat Keluar</a>
+            <a class="collapse-item" href="masuk">Surat Masuk</a>
+            <a class="collapse-item" href="keluar">Surat Keluar</a>
           </div>
         </div>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link " href="#" data-toggle="modal" data-target="#logoutModal">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-fw fa-sign-out-alt"></i>
           <span>Logout</span></a>
       </li>
@@ -256,55 +256,63 @@
                     <h6 class="m-0 font-weight-bold text-primary">Input data Surat Keluar</h6>
                 </div>
                 <div class="card-body"> 
-                  <form action="">
+                  <form method='post' action="<?php echo ('input_keluar')?>">
                     <div class="form-group  col col-sm-6">
                       <label>Nomor:</label>
-                      <input type="text" class="form-control" id="nomor">
+                      <input type="text" class="form-control" name="nomor">
+                    </div>
+
+                    <div class="form-group  col col-sm-6">
+                      <label>Jenis Surat:</label>
+                      <select name="jenis" class="form-control">
+                        <option value="1">Amal Usaha Muhammadiyah</option>
+                        <option value="2">Dinas</option>
+                        <option value="3">Sekolah</option>  
+                      </select>
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Kategori:</label>
-                      <select name="kategori" id="kategori" class="form-control">
-                        <option value="A">Amal Usaha Muhammadiyah</option>
-                        <option value="B">Dinas</option>
-                        <option value="C">Sekolah</option>  
+                      <select name="kategori" class="form-control">
+                        <option value="1" >Masuk</option>
+                        <option value="2" selected>Keluar</option>
                       </select>
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Perihal:</label>
-                      <input type="text" class="form-control" id="perihal">
+                      <input type="text" class="form-control" name="perihal">
                     </div>
 
                     <div class="form-group  col col-sm-6">
                       <label>Nama penerima:</label>
-                      <input type="text" class="form-control" id="perihal">
+                      <input type="text" class="form-control" name="penerima">
                     </div>
                  
                     <div class="form-group  col col-sm-6">
                       <label>Alamat pengirim:</label>
-                      <input type="text" class="form-control" id="perihal">
+                      <input type="text" class="form-control" name="alamat">
                     </div>
 
                     <div class="form-gorup  col col-sm-6">
                       <label>Isi surat:</label>
-                      <textarea class="form-control" rows="5"></textarea>
+                      <textarea class="form-control" rows="5" name='isi'></textarea>
                     </div>
                     
                     <div class="form-group  col col-sm-6">
                       <label>Tanggal surat:</label>
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" name='tgl_srt'>
                     </div>
 
                     <div class="form-group col col-sm-6">
                       <label>Upload dokumen:</label>
-                      <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
+                      <input type="file" name="fileToUpload" class="form-control">
                     </div>
 
                     <div class="btn-group" role="group" aria-label="Basic example">
-                      <button type="button" class="btn btn-success">Simpan</button>
-                      <button type="button" class="btn btn-secondary">Reset</button>
-                      <button type="button" class="btn btn-danger">Batal</button>
+                      <button type="submit" class="btn btn-success">Simpan</button>
+                      <button type="reset" class="btn btn-secondary">Reset</button>
+                      <a href='keluar' class="btn btn-danger">Batal</a>
                     </div>
                   </form>
           </div>
@@ -320,7 +328,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SmartSchool SMP Muh2 2019</span>
+          <span>Copyright &copy;  SmartSchool SMP Muh2 <?php echo date("Y"); ?></span>
           </div>
         </div>
       </footer>
@@ -356,14 +364,14 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
+  <script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')?>"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="<?php echo base_url('assets/vendor/jquery-easing/jquery.easing.min.js')?>"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <script src="<?php echo base_url('assets/js/sb-admin-2.min.js')?>"></script>
 
 </body>
 

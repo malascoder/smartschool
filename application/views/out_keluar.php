@@ -249,7 +249,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800"><sup>Data input</sup>Surat Keluar</h1>
+          <h1 class="h3 mb-4 text-gray-800"><sup>Data</sup> Surat Keluar</h1>
             <a href="<?php echo('in_keluar')?>" class="btn btn-primary">Baru</a>
             <br>
             <br>
@@ -269,21 +269,21 @@
                             <th>Perihal</th>
                             <th>Nama Penerima</th>
                             <th>Tanggal Surat</th>
-                            <th>Operassssi</th>
+                            <th>Operasi</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         $count = 0;
-                        foreach ($listsuratmasuk->result() as $value);
-                          count++;
+                        foreach ($listsuratkeluar->result() as $value):
+                         $count++;
                           ?>
                             <tr>    
                                 <td><?php echo $count;?></td>
                                 <td><?php echo $value->nomor_surat;?></td>
                                 <td><?php echo $value->id_kategori;?></td>
                                 <td><?php echo $value->perihal;?></td>
-                                <td><?php echo $value->nama_pengirim;?></td>
+                                <td><?php echo $value->nama_penerima;?></td>
                                 <td><?php echo $value->tanggal_surat;?></td>
                                 <td align='center'><a class='btn btn-danger'>Delete</a>
                                 <a class='btn btn-warning'>Edit</a></td>
@@ -304,7 +304,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SmartSchool SMP Muh2 2019</span>
+          <span>Copyright &copy;  SmartSchool SMP Muh2 <?php echo date("Y"); ?></span>
           </div>
         </div>
       </footer>

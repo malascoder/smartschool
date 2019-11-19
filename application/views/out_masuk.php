@@ -249,7 +249,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800"><sup>Input data</sup> Surat masuk</h1>
+          <h1 class="h3 mb-4 text-gray-800"><sup>Data</sup> Surat masuk</h1>
             <a href="<?php echo base_url('main/in_masuk')?>" class="btn btn-primary">Baru</a>
             <br>
             <br>
@@ -275,7 +275,7 @@
                         <tbody>
                         <?php
                         $count = 0;
-                        foreach ($listsuratmasuk->result() as $value);
+                        foreach ($listsuratmasuk->result() as $value):
                           $count++;
                           ?>
                             <tr>    
@@ -304,7 +304,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; SmartSchool SMP Muh2 2019</span>
+          <span>Copyright &copy;  SmartSchool SMP Muh2 <?php echo date("Y"); ?></span>
           </div>
         </div>
       </footer>
